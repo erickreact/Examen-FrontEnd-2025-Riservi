@@ -1,30 +1,60 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+export default {
+
+	name: 'SupportView',
+	components: {
+
+	},
+	data () {
+		return {
+			myArray: [],
+			output:"",
+			
+		}
+	},
+	computed:{
+	
+	},
+	methods:{
+
+	}
+}
 </script>
-
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
-</template>
+<html>
+	<head>
+	</head>
+	<body>
+		<div id="contenedor">
+			<div class="bloque1">
+				<p>Este es el Bloque 1 dentro del contenedor.</p>
+			</div>
+			<div class="bloque2">
+				<p>Este es el contenido del Bloque 2 dentro del contenedor, este contiene mas texto, por eso debe ser mas largo.</p>
+			</div>
+		</div>
+		<div class="bloque1">
+			<p>Este es el Bloque 1 fuera del contenedor.</p>
+		</div>
+		<div class="bloque2">
+			<p>Este es el Bloque 2 fuera del contenedor.</p>
+		</div>
+		<div class="v-container">
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+		</div>
+		<div class="btn">
+			Generar
+		</div>
+		<div class="output">
+		</div>
+	</body>
+</html>
+</template>
+<style type="text/css">
+
+.clear {
+	clear:both;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+	
 </style>
+
