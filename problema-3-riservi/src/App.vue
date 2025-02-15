@@ -19,12 +19,19 @@
 			<p>Este es el Bloque 2 fuera del contenedor.</p>
 		</div>
 		<div class="v-container">
-
+			<div v-for="(item, index) in myArray" 
+				:key="item.id" 
+				:style="{ backgroundColor: index % 2 !== 0 ? '#808080' : 'none', 
+						  display: index % 2 === 0 ? 'none' : 'block' }">
+				<p>Nombre: {{ item.name }}</p>
+				<p>Roles: {{ item.roles.join(', ') }}</p>
+			</div>
 		</div>
-		<div class="btn">
-			Generar
+		<div class="btn success" @click="calculaSalida">
+			Generar 
 		</div>
 		<div class="output">
+			{{ output }}
 		</div>
 	</body>
 </html>
@@ -38,16 +45,25 @@ export default {
 	},
 	data () {
 		return {
-			myArray: [],
-			output:"",
-			
+			myArray: [
+			{ id: 1, name: 'Erick', roles: [4, 1, 3] },
+            { id: 2, name: 'Cesar', roles: [6, 2] },
+            { id: 3, name: 'Carolina', roles: [2, 4, 6] },
+            { id: 4, name: 'Alberto', roles: [1, 2] },
+            { id: 5, name: 'Katalina', roles: [4, 3] }
+			],
+            output: "",
 		}
 	},
 	computed:{
-	
+		respuesta() {
+            return this.myArray.length;
+        }
 	},
 	methods:{
-
+        calculaSalida() {
+            this.output = `El total de listado es: ${this.respuesta}`;
+        }
 	}
 }
 </script>
@@ -106,6 +122,22 @@ p {
 
 .clear {
     clear: both;
+}
+
+.btn {
+  border: none; 
+  color: black; 
+  padding: 14px 28px; 
+  cursor: pointer; 
+  border-radius: 5px; 
+}
+
+.success {background-color: white; border: 2px solid #04AA6D;} 
+.success:hover {background-color: #46a049; color: white;}
+
+.output {
+  margin-top: 15px;
+  font-weight: bold;
 }
 
 </style>
